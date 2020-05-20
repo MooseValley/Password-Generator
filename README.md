@@ -1,13 +1,17 @@
 # Password Generator
 
+Another project in my "**Build Your Own Software with Moose**" series where
+I walk people through every stage of the development and explain every line of code,
+so that anyone can follow along with me and build the project as well.
+
 ## YouTube Tutorials
 
-### Build Your Own Software with Moose - S02,E01 - Password Generator
+### Build Your Own Software with Moose - S02,E01 - Password Generator (YouTube video):
 YouTube video
 *
 
-### Build Your Own Software with Moose - S02,E02 - Password Generator
-YouTube video
+### Build Your Own Software with Moose - S02,E02 - Password Generator (YouTube video):
+
 *
 
 ### My Github where you can find the source code (this page):
@@ -16,5 +20,5 @@ YouTube video
 ### My Software Development YouTube channel:
 * https://www.youtube.com/user/MoosesValley/videos
 
-### Moose's Software Valley - Established July, 1996.
+### Moose's Software Valley - Established July, 1996:
 * https://rebrand.ly/MoosesSoftware
