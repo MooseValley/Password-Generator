@@ -3,9 +3,11 @@
 ## YouTube Tutorials
 
 ### Build Your Own Software with Moose - S02,E01 - Password Generator
+YouTube video
 *
 
 ### Build Your Own Software with Moose - S02,E02 - Password Generator
+YouTube video
 *
 
 ### My Github where you can find the source code:
