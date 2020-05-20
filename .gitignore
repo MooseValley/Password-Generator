@@ -99,7 +99,7 @@
 *.xls
 *.xlsx
 *.xml
-*.zip
+#*.zip
 *00 - Merge ALL*.bat
 *00 - Merge ALL*.txt
 *_v*.jar

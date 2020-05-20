@@ -10,7 +10,7 @@ YouTube video
 YouTube video
 *
 
-### My Github where you can find the source code:
+### My Github where you can find the source code (this page):
 * https://github.com/MooseValley/Password-Generator
 
 ### My Software Development YouTube channel:
