@@ -12,18 +12,27 @@
 * Compile and create a JAR file.
 * My code will be on Github
 
-* TODO: min chars, min digits, eg. password must have 2 alphabetic letters
+v0.03:
+* Add version number to Title Bar
+* Made all password setting checkboxes checked by default.
+* Copy to Clipboard works
+* Fixed the password generation.
+
+* TODO: min chars, min digits, ... eg. password must have 2 alphabetic letters
 2 digits, and 1 special minimum.
 */
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.security.SecureRandom;
+import java.awt.datatransfer.StringSelection;
+import java.awt.datatransfer.Clipboard;
+
 
 public class PasswordGenerator extends JFrame
 {
    // Constants:
-   public static final String APP_NAME_AND_VERS = "Password Generator";// v0.02";
+   public static final String APP_NAME_AND_VERS = "Password Generator - v0.03";//
    public static final String UPPERCASE_LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
    public static final String LOWERCASE_LETTERS = "abcdefghijklmnopqrstuvwxyz";
    public static final String DIGITS            = "0123456789";
@@ -46,7 +55,7 @@ public class PasswordGenerator extends JFrame
    {
       setLayout (new GridLayout (8, 1) );
 
-      passwordLengthSpinner.setModel (new SpinnerNumberModel (15, 15, 100, 1) );
+      passwordLengthSpinner.setModel (new SpinnerNumberModel (20, 15, 100, 1) );
 
       add (uppercaseCheckBox);
       add (lowercaseCheckBox);
@@ -58,7 +67,12 @@ public class PasswordGenerator extends JFrame
       add (copyClipboardButton);
 
       generatePassswordButton.addActionListener (event -> generatePasssword () );
+      copyClipboardButton.addActionListener     (event -> copyClipboard () );
 
+      uppercaseCheckBox.setSelected    (true);
+      lowercaseCheckBox.setSelected    (true);
+      digitsCheckBox.setSelected       (true);
+      specialCharsCheckBox.setSelected (true);
 
       setTitle    (APP_NAME_AND_VERS);
       setSize     (500, 500);
@@ -88,7 +102,7 @@ public class PasswordGenerator extends JFrame
       }
 
 
-      for (int c = 0; c < passwordLength; c++)
+      for (int c = 0; c < passwordLength; )
       {
          int charType = (int) (Math.random() * 4); // 0 - 3
 
@@ -96,24 +110,28 @@ public class PasswordGenerator extends JFrame
          {
             int rand = generator.nextInt (UPPERCASE_LETTERS.length() );    // 0-25;
             passwordStr += UPPERCASE_LETTERS.charAt (rand);
+            c++;
          }
 
          if ((charType == 1) && (lowercaseCheckBox.isSelected() == true) )
          {
             int rand = generator.nextInt (LOWERCASE_LETTERS.length() );    // 0-25;
             passwordStr += LOWERCASE_LETTERS.charAt (rand);
+            c++;
          }
 
          if ((charType == 2) && (digitsCheckBox.isSelected() == true) )
          {
             int rand = generator.nextInt (DIGITS.length() );    //0 to 9.
             passwordStr += DIGITS.charAt (rand);
+            c++;
          }
 
          if ((charType == 3) && (specialCharsCheckBox.isSelected() == true) )
          {
             int rand = generator.nextInt (SPECIAL_CHARS.length() );    //0 to ...
             passwordStr += SPECIAL_CHARS.charAt (rand);
+            c++;
          }
       }
 
@@ -121,6 +139,14 @@ public class PasswordGenerator extends JFrame
 
    }
 
+   private void copyClipboard ()
+   {
+      StringSelection selection = new StringSelection (passwordLabel.getText () );
+
+      Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+
+      clipboard.setContents (selection, selection);
+   }
 
    public static void main(String[] args)
    {
