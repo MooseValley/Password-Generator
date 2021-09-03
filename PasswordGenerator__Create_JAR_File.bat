@@ -1,13 +1,13 @@
-REM-----------------------------
+REM -----------------------------
 REM PasswordGenerator
-REM-----------------------------
+REM -----------------------------
 echo off
 cls
 REM
 
 :STARTCOMPILE
 echo "%dirlocation%"
-del *.class
+del /q *.class
 echo Create the Manifest file:
 echo Main-Class: PasswordGenerator >MANIFEST.MF
 echo .
@@ -21,8 +21,8 @@ REM "%dirlocation%jar.exe" cvfm PasswordGenerator.jar MANIFEST.MF *.class *.png 
 "%dirlocation%jar.exe" cfm PasswordGenerator.jar MANIFEST.MF *.class PasswordGenerator*.txt
 
 REM
-del *.class
-del ..\00__common_code\*.class
+del /q *.class
+del /q ..\00__common_code\*.class
 REM del *.gif
 
 :END
